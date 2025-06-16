@@ -22,33 +22,32 @@
         </tr>
       </thead>
       <tbody class="table-border-bottom-0">
+        {% for blog in blogs %}
         <tr>
-          <td><i class="bx bxl-angular bx-md text-danger me-4"></i> <span>Angular Project</span></td>
-          <td>Albert Cook</td>
+          <td><span>{{blog.title}}</span></td>
           <td>
-            <ul class="list-unstyled m-0 avatar-group d-flex align-items-center">
-              <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top" class="avatar avatar-xs pull-up" title="Lilian Fuller">
-                <img src="{% static 'img/avatars/5.png' %}" alt="Avatar" class="rounded-circle">
-              </li>
-              <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top" class="avatar avatar-xs pull-up" title="Sophia Wilkerson">
-                <img src="{% static 'img/avatars/6.png' %}" alt="Avatar" class="rounded-circle">
-              </li>
-              <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top" class="avatar avatar-xs pull-up" title="Christina Parker">
-                <img src="{% static 'img/avatars/7.png' %}" alt="Avatar" class="rounded-circle">
-              </li>
-            </ul>
-          </td>
-          <td><span class="badge bg-label-primary me-1">Active</span></td>
+              <ul class="list-unstyled m-0 avatar-group d-flex align-items-center">
+                  <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top" class="avatar avatar-xs pull-up" title="">
+                      <img src="{{blog.image.url}}" alt="Avatar" class="rounded-circle">
+                    </li>
+                </ul>
+            </td>
+            <td>{{blog.text}}</td>
+          <td><span class="badge bg-label-primary me-1">{{blog.is_active}}</span></td>
           <td>
             <div class="dropdown">
               <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="bx bx-dots-vertical-rounded"></i></button>
               <div class="dropdown-menu">
-                <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i> Edit</a>
-                <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-1"></i> Delete</a>
+                <a class="dropdown-item" href="{% url 'update_blog' blog.id %}"><i class="bx bx-edit-alt me-1"></i> Edit</a>
+                <form action="{% url 'delete_blog' blog.id %}" method="post">
+                    {% csrf_token %}
+                <button type="submit" class="dropdown-item"><i class="bx bx-trash me-1"></i> Delete</button>
+                </form>
               </div>
             </div>
           </td>
         </tr>
+        {% endfor %}
       </tbody>
     </table>
   </div>
