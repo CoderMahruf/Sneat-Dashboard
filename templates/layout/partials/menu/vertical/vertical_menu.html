@@ -150,18 +150,13 @@
       </a>
       <ul class="menu-sub">
         <li class="menu-item {% if '/error/' in request.path %}active{% endif %}">
-          <a href="{% url 'pages-misc-error' %}" class="menu-link" target="_blank">
+          <a href="{% url 'create_blog' %}" class="menu-link" target="_blank">
             <div class="text-truncate" data-i18n="Error">Create New</div>
           </a>
         </li>
         <li class="menu-item {% if '/under_maintenance/' in request.path %}active{% endif %}">
-          <a href="{% url 'blogs' %}" class="menu-link" target="_blank">
+          <a href="{% url 'blog' %}" class="menu-link" target="_blank">
             <div class="text-truncate" data-i18n="Under Maintenance">Blog List</div>
-          </a>
-        </li>
-        <li class="menu-item {% if '/under_maintenance/' in request.path %}active{% endif %}">
-          <a href="{% url 'pages-misc-under-maintenance' %}" class="menu-link" target="_blank">
-            <div class="text-truncate" data-i18n="Under Maintenance">Categories</div>
           </a>
         </li>
       </ul>

@@ -4,7 +4,7 @@ from django.db import models
 
 class Blog(models.Model):
     title = models.CharField(max_length=100)
-    image = models.ImageField(upload_to='media')
+    image = models.ImageField(upload_to='image')
     text = models.TextField()
     is_active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
