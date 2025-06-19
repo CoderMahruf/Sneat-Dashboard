@@ -68,6 +68,9 @@ INSTALLED_APPS = [
     "apps.form_layouts",
     "apps.tables",
     'apps.blog',
+    'apps.page',
+    'widget_tweaks',
+    'ckeditor',
 ]
 
 MIDDLEWARE = [
