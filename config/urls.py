@@ -60,6 +60,9 @@ urlpatterns = [
 
     # Blog urls
     path("", include("apps.blog.urls")),
+
+    # Page urls
+    path("", include("apps.page.urls")),
 ]
 
 handler404 = SystemView.as_view(template_name="pages_misc_error.html", status=404)
